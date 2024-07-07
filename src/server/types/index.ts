@@ -10,6 +10,11 @@ export interface Category {
     name: string;
 }
 
+export interface MySqlResponse {
+    affectedRows: number;
+    insertId: number
+}
+
 export interface Book {
     id: number;
     category_id: Category["id"];
