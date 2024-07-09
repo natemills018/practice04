@@ -1,8 +1,8 @@
 export interface User {
-    id: number;
-    email: string;
-    password: string;
-    created_at: Date;
+    id?: number;
+    email?: string;
+    password?: string;
+    created_at?: Date;
 }
 
 export interface Category {
@@ -31,8 +31,8 @@ export interface Payload {
 
 declare global {
     namespace Express {
-        export interface Request {
-            user: Payload;
+        export interface User extends Payload {
+
         }
     }
 }

@@ -11,10 +11,10 @@ export interface Category {
 }
 
 export interface Book {
-    id: number;
-    category_id: Category["id"];
-    title: string;
-    author: string;
-    price: number;
-    created_at: Date;
+    id?: number;
+    category_id?: Category["id"];
+    title?: string;
+    author?: string;
+    price?: number;
+    created_at?: Date;
 }
