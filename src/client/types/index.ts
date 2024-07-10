@@ -6,8 +6,8 @@ export interface User {
 }
 
 export interface Category {
-    id: number;
-    name: string;
+    id?: number;
+    name?: string;
 }
 
 export interface Book {

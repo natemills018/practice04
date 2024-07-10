@@ -1,4 +1,8 @@
+export const TOKEN_KEY = 'token'
+const URL_PREFACE = process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
+
 export function fetcher<T = any>(url: string, method: string = "GET", rawData?: any) {
+    
     const headers = new Headers();
 
     const options: RequestInit = {
@@ -6,7 +10,7 @@ export function fetcher<T = any>(url: string, method: string = "GET", rawData?: 
         method,
     };
 
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem(TOKEN_KEY);
 
     if (token) {
         headers.append("Authorization", `Bearer ${token}`);
@@ -19,7 +23,7 @@ export function fetcher<T = any>(url: string, method: string = "GET", rawData?: 
 
     return new Promise<T>(async (resolve, reject) => {
         try {
-            const res = await fetch(process.env.SERVER_URL + url, options);
+            const res = await fetch(URL_PREFACE + url, options);
             const data = await res.json();
 
             if (res.ok) {

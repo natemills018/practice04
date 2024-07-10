@@ -4,6 +4,10 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Home from "./views/Home";
 import Books from "./views/Books";
 import BookDetails from "./components/bookDetails";
+import Categories from "./views/Categories";
+import AddBook from "./views/AddBook";
+import CategoryDetails from "./components/categoryDetails";
+import Login from "./views/Login";
 import './styles/app.scss';
 
 
@@ -22,15 +26,16 @@ const App = (props: AppProps) => {
                 <Link to='/books' className='btn btn-outline btn-secondary m-3'>Books</Link>
 				<Link to='/categories' className='btn btn-outline btn-light m-3'>Categories</Link>
 				<Link to='/login' className='btn btn-outline btn-danger m-3'>Login!</Link>
+                <Link to='/books/new' className='btn btn-outline btn-success m-3'>Add book!</Link>
 				
 			</div>
 
 			<Routes>
 				<Route path='/' element={<Home />} />
 				<Route path='/books/:id' element={<BookDetails />} />
-				{/* <Route path='/categories/:id' element={<Blog />} />
-				<Route path='/books/new' element={<Authors />} />
-				<Route path='/books/:id/update' element={<Blogs />} /> */}
+                <Route path='/categories' element ={< Categories />} />
+				<Route path='/books/new' element={<AddBook />} />
+				<Route path='/login' element={<Login />} />
                 <Route path='/books' element={<Books />} />
 				
 			</Routes>

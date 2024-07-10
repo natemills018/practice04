@@ -1,8 +1,11 @@
-export interface User {
-    id?: number;
-    email?: string;
-    password?: string;
-    created_at?: Date;
+export interface User extends NewUser {
+    id: number;
+    created_at: Date;
+}
+
+export interface NewUser {
+    email: string,
+    password: string,
 }
 
 export interface Category {
@@ -10,18 +13,24 @@ export interface Category {
     name: string;
 }
 
+export interface NewBook {
+    
+    category_id: Category["id"];
+    title: string;
+    author: string;
+    price: number;
+}
+
+
 export interface MySqlResponse {
     affectedRows: number;
     insertId: number
 }
 
-export interface Book {
+export interface Book extends NewBook {
     id: number;
-    category_id: Category["id"];
-    title: string;
-    author: string;
-    price: number;
     created_at: Date;
+    
 }
 
 export interface Payload {
